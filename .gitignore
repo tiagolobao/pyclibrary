@@ -8,3 +8,6 @@ __pycache__
 
 .mypy_cache
 *.pyclibcache
+
+.coverage
+coverage.xml
