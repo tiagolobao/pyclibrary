@@ -1,18 +1,19 @@
 version: '3.8'
 services:
 
-  pyclibrary-lint:
+  lint:
     build:
       context: ./
     volumes:
       - ./:/app
     command: python -m pylint ./pyclibrary
 
-  pyclibrary-utest:
+  utest:
     build:
       context: ./
     volumes:
       - ./:/app
+    ports:
+      - '5678:5678'
     command: python -m pytest tests --cov pyclibrary --cov-report xml -v
-    depends_on:
-      - pyclibrary-lint
+    
